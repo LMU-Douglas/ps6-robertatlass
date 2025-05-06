@@ -21,7 +21,27 @@ def is_power_balanced(n, party):
     
     Note that the output is case-sensitive, and must match the format exactly without leading or trailing whitespace.
     """
-    
+
+    future_one = 0
+    two_gether = 0
+    triple_harmony = 0
+
+    for p in party.split():
+        if p == '1':
+            future_one += 1
+        elif p == '2':
+            two_gether += 1
+        elif p == '3':
+            triple_harmony += 1
+
+    if future_one > two_gether + triple_harmony:
+        return "Future One Dominates"
+    elif two_gether > future_one + triple_harmony:
+        return "Two-gether Dominates"
+    elif triple_harmony > future_one + two_gether:
+        return "Triple Harmony Dominates"
+    else:
+        return "Power Balanced"
+
     return None # TODO: Implement this function
 
-# Run pytest test_problem_1.py to test the function
